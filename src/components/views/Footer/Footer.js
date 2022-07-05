@@ -1,7 +1,7 @@
 
 const Footer = () => {
      return (
-          <div className="text-center text-muted" >Copyright &#169; Waiter.app 2022</div>
+          <div className="text-center text-muted mt-5" >Copyright &#169; Waiter.app 2022</div>
      );
 }
 
