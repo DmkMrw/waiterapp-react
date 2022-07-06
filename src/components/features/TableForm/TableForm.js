@@ -13,14 +13,11 @@ import { useNavigate } from 'react-router-dom';
 const TableForm = ({actionText}) => {
 
      const { id } = useParams();
-     console.log('table', id);
      const dispatch = useDispatch();
      const navigate = useNavigate();
 
      const tableData = useSelector(state => getTableById(state, id));
      const statuses = useSelector(getAllStatuses);
-
-     console.log('stat', statuses);
 
      const [status, setStatus] = useState(tableData.status)
      const [peopleAmount, setPeopleAmount] = useState(tableData.peopleAmount)
