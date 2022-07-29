@@ -26,8 +26,26 @@ const TableForm = ({actionText}) => {
 
      const handleSubmit = (e) => {
           e.preventDefault();
-          dispatch(updateTable({ status, peopleAmount, maxPeopleAmount, bill, id }))
+          dispatch(updateTable({ status, peopleAmount, maxPeopleAmount, bill, id }));
+
+          const options = {
+               method: 'PATCH',
+               headers: {
+               'Content-Type': 'application/json'
+               },
+               body: JSON.stringify({
+                    status,
+                    peopleAmount,
+                    maxPeopleAmount,
+                    bill,
+                    id,
+               })
+          };
+
+          fetch(`http://localhost:3131/tables/${id}`, options)
+
           navigate(-1)
+
      }
 
      return (
@@ -88,9 +106,6 @@ const TableForm = ({actionText}) => {
                          </Form.Group>
                          <Button as="input" value={'UPDATE'} type="submit" style={{ marginTop: '20px' }} />
                     </Form>
-
-
-
                </Row>
 
           </>

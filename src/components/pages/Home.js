@@ -6,7 +6,7 @@ const Home = () => {
 
      const tables = useSelector(getAllTables);
 
-     console.log('tables', tables);
+
 
      return (
           <>
