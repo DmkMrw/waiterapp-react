@@ -10,6 +10,7 @@ const subreducers = {
 }
 
 const reducer = combineReducers(subreducers);
+
 fetch(`http://localhost:3131/tables`)
           .then(res => res.json())
           .then(data => {
