@@ -5,14 +5,21 @@ import Table from './components/pages/Table';
 import NotFound from './components/pages/NotFound';
 import Header from './components/views/Header/Header';
 import Footer from './components/views/Footer/Footer';
-import { fetchTables } from './redux/tablesReducer';
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { updateTables } from './redux/tablesReducer';
+import { useEffect } from 'react';
 
-function App() {
+
+const App = () => {
   const dispatch = useDispatch();
+  const fetchTables = () => {
+    fetch('http://localhost:3131/tables')
+      .then(res => res.json())
+      .then(tables => dispatch(updateTables(tables), console.log('tables', tables)))
+  };
 
-  useEffect(() => dispatch(fetchTables()), [dispatch]);
+  useEffect(fetchTables, [dispatch]);
+
 
   return (
     <Container>

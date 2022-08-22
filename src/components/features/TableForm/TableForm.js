@@ -28,22 +28,6 @@ const TableForm = ({actionText}) => {
           e.preventDefault();
           dispatch(updateTable({ status, peopleAmount, maxPeopleAmount, bill, id }));
 
-          const options = {
-               method: 'PATCH',
-               headers: {
-               'Content-Type': 'application/json'
-               },
-               body: JSON.stringify({
-                    status,
-                    peopleAmount,
-                    maxPeopleAmount,
-                    bill,
-                    id,
-               })
-          };
-
-          fetch(`http://localhost:3131/tables/${id}`, options)
-
           navigate(-1)
 
      }
