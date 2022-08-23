@@ -6,7 +6,7 @@ export const getAllStatuses = (state) => state.statuses;
 
 // actions
 const createActionName = actionName => `app/tables/${actionName}`;
-const UPDATE_TABLE = createActionName('UPDATE_TABLES')
+const UPDATE_TABLE = createActionName('UPDATE_TABLE')
 const UPDATE_TABLES = createActionName('UPDATE_TABLES');
 
 

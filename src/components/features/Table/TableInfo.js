@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const TableInfo = ({ status, id, bill }) => {
      const tableStatus = status;
+
      return (
           <Row>
                <Row className="align-items-end mb-3 mt-3 pr-0">
