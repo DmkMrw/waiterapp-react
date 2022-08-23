@@ -5,7 +5,8 @@ import { getAllTables } from "../../redux/tablesReducer";
 const Home = () => {
 
      const tables = useSelector(getAllTables);
-     console.log('tables in Home', tables);
+     console.log('tables in home', tables);
+
 
      return (
           <>

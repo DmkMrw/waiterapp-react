@@ -5,7 +5,6 @@ import { useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import { getAllStatuses } from '../../../redux/tablesReducer';
 import shortid from 'shortid';
-import { updateTable } from '../../../redux/tablesReducer';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -48,7 +47,7 @@ const TableForm = ({actionText}) => {
                                         </Form.Select>
                                    </Col>
                               </Row>
-                              {status !== 'Free' &&
+                              {status === 'Busy' &&
                                    <Row className="mb-4 mt-4 d-flex align-items-center">
                                         <Col md={1}>
                                              <strong>People:</strong>
@@ -70,7 +69,7 @@ const TableForm = ({actionText}) => {
                                         />
                                    </Row>
                               }
-                              {status !== 'Free' &&
+                              {(status !== 'Free' && status !== 'Reserved') &&
                                    <Row className={'d-flex align-items-center'}>
                                         <Col md={1}>
                                              <strong>Bill:</strong>

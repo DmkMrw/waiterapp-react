@@ -8,11 +8,13 @@ export const getAllStatuses = (state) => state.statuses;
 const createActionName = actionName => `app/tables/${actionName}`;
 const UPDATE_TABLE = createActionName('UPDATE_TABLE');
 const UPDATE_TABLES = createActionName('UPDATE_TABLES');
+const DELETE_TABLE = createActionName('DELETE_TABLE');
 
 
 // action creators
 export const updateTable = payload => ({ type: UPDATE_TABLE, payload });
 export const updateTables = (payload) => ({ type: UPDATE_TABLES, payload });
+export const deleteTable = (payload) => ({ type: DELETE_TABLE, payload });
 export const fetchTables = () => {
      return (dispatch) => {
           fetch('http://localhost:3131/tables')
@@ -36,6 +38,18 @@ export const updateTableData = (newData) => {
      }
 }
 
+export const deleteTableData = (payload) => {
+     return (dispatch) => {
+          const options = {
+               method: 'DELETE',
+               headers: {
+                    'Content-Type': 'application/json'
+               }
+          };
+          fetch(`http://localhost:3131/tables/${payload}`, options)
+               .then (()=> dispatch(deleteTable(payload)))
+     }
+}
 
 const tablesReducer = (statePart = [], action) => {
      switch (action.type) {
@@ -43,6 +57,8 @@ const tablesReducer = (statePart = [], action) => {
                return statePart.map(table => (table.id === action.payload.id ? { ...table, ...action.payload } : table))
           case UPDATE_TABLES:
                return [...action.payload];
+          case DELETE_TABLE:
+               return statePart.filter(table => (table.id !== action.payload))
           default:
           return statePart;
      };
