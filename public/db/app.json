@@ -15,11 +15,11 @@
       "bill": 0
     },
     {
-      "id": "3",
-      "status": "Free",
-      "peopleAmount": 2,
-      "maxPeopleAmount": 3,
-      "bill": 45
+      "status": "Busy",
+      "peopleAmount": "9",
+      "maxPeopleAmount": "10",
+      "bill": 45,
+      "id": "3"
     },
     {
       "id": "4",

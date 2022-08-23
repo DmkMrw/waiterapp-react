@@ -1,5 +1,5 @@
 import { useParams } from 'react-router'
-import { getTableById } from '../../../redux/tablesReducer';
+import { getTableById, updateTableData } from '../../../redux/tablesReducer';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { Row, Col, Form, Button } from 'react-bootstrap';
@@ -26,7 +26,7 @@ const TableForm = ({actionText}) => {
 
      const handleSubmit = (e) => {
           e.preventDefault();
-          dispatch(updateTable({ status, peopleAmount, maxPeopleAmount, bill, id }));
+          dispatch(updateTableData({ status, peopleAmount, maxPeopleAmount, bill, id}));
 
           navigate(-1)
 
