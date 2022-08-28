@@ -8,7 +8,7 @@ import Footer from './components/views/Footer/Footer';
 import { useDispatch } from 'react-redux';
 import { fetchTables } from './redux/tablesReducer';
 import { useEffect } from 'react';
-
+import AddTable from './components/features/AddTable/AddTable'
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,9 +18,10 @@ const App = () => {
   return (
     <Container>
       <Header />
-      <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/table/:id" element={<Table />} />
+          <Route path="/addtable" element={<AddTable/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       <Footer />
