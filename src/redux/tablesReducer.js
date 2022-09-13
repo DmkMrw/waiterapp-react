@@ -21,7 +21,7 @@ export const fetchTables = () => {
      return (dispatch) => {
           fetch('http://localhost:3131/tables')
                .then(res => res.json())
-               .then(tables => dispatch(updateTables(tables), console.log('tables', tables)))
+               .then(tables => dispatch(updateTables(tables)));
      };
 };
 
@@ -59,7 +59,8 @@ export const addTableData = (payload) => {
                method: 'POST',
                headers: {
                     'Content-Type': 'application/json'
-               }
+               },
+               body: JSON.stringify(payload),
           };
           fetch(`http://localhost:3131/tables/`, options)
                .then(() => dispatch(addTable(payload)))
@@ -76,7 +77,7 @@ const tablesReducer = (statePart = [], action) => {
           case DELETE_TABLE:
                return statePart.filter(table => (table.id !== action.payload))
           case ADD_TABLE:
-               return [ ...action.payload ]
+               return [...statePart,  ...action.payload ]
           default:
           return statePart;
 

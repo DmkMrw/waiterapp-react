@@ -22,14 +22,11 @@
       "id": "3"
     },
     {
-      "id": "4",
-      "status": "Free",
+      "status": "Reserved",
       "peopleAmount": 0,
       "maxPeopleAmount": 3,
-      "bill": 0
-    },
-    {
-      "id": "y4Tvqw4"
+      "bill": 0,
+      "id": "4"
     }
   ],
   "statuses": [

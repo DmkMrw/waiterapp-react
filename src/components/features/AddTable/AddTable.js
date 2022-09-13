@@ -12,10 +12,7 @@ const AddTable = ({actionText}) => {
 
      const dispatch = useDispatch();
      const navigate = useNavigate();
-
-     // const tableData = useSelector(state => getTableById(state, id));
      const statuses = useSelector(getAllStatuses);
-     const allId = useSelector(getAllId);
 
      const [status, setStatus] = useState('')
      const [peopleAmount, setPeopleAmount] = useState('')
@@ -32,8 +29,7 @@ const AddTable = ({actionText}) => {
                bill: bill
           }
           e.preventDefault();
-          console.log({payload});
-          dispatch(addTableData({payload}));
+          dispatch(addTableData(payload));
 
           navigate(-1)
 
